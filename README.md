@@ -1,6 +1,8 @@
-# ⚠️ WebShell-Pack
+# WebShell-Pack
 
-> **WARNING:** This tool generates web shells for **authorized security testing and
+> **⚠️ WARNING:** Only deploy on servers you own or have explicit written authorization to test. Unauthorized web shell deployment is illegal. This tool is for authorized penetration testing and CTF challenges only.
+
+Collection of minimal web shells (PHP, ASP, JSP) for post-exploitation access. Generator creates single-file payloads with optional auth and obfuscation.
 > research only**. Unauthorized use against systems you do not own or have explicit
 > written permission to test is **illegal**. The author assumes no liability for
 > misuse.
