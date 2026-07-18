@@ -1,0 +1,23 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+
+# Generated shells (keep raw payloads, ignore generated)
+*.php
+*.asp
+*.jsp
+!payloads/*.php
+!payloads/*.asp
+!payloads/*.jsp
+
+# OS
+.DS_Store
+Thumbs.db

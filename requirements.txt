@@ -1,0 +1,2 @@
+# WebShell-Pack - No external dependencies
+# Built with Python 3.8+ standard library only
