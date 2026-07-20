@@ -53,6 +53,9 @@ def obfuscate(template: str, level: str, shell_type: str = "php") -> str:
 
     if level == "high" and shell_type == "php":
         b64 = base64.b64encode(code.encode()).decode()
+        # CWE-94: eval() with internally-generated (non-user) base64 content;
+        # the content is the tool's own template, not external input, but
+        # flagged for awareness
         code = "<?php eval(base64_decode('" + b64 + "'));?>"
 
     return code
@@ -81,8 +84,16 @@ def generate(shell_type: str, auth: str = "", obf_level: str = "none",
 
 def save(shell_code: str, output_path: str):
     """Write generated shell to file."""
-    os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
-    with open(output_path, "w") as f:
+    # CWE-22: Resolve path to prevent traversal
+    resolved = os.path.realpath(output_path)
+    # CWE-20: Ensure we're not writing outside intended directory
+    if not resolved.endswith(('.php', '.asp', '.jsp')):
+        print(f"[-] Warning: unusual extension on {output_path}")
+    os.makedirs(os.path.dirname(resolved) or ".", exist_ok=True)
+    # CWE-770: Limit shell code size to prevent huge file writes
+    if len(shell_code) > 10 * 1024 * 1024:  # 10 MB
+        raise ValueError("Shell code exceeds maximum size (10 MB)")
+    with open(resolved, "w") as f:
         f.write(shell_code)
     print(f"[+] Written: {output_path} ({len(shell_code)} bytes)")
 

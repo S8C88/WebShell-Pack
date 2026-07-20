@@ -2,22 +2,15 @@
 
 > **⚠️ WARNING:** Only deploy on servers you own or have explicit written authorization to test. Unauthorized web shell deployment is illegal. This tool is for authorized penetration testing and CTF challenges only.
 
-Collection of minimal web shells (PHP, ASP, JSP) for post-exploitation access. Generator creates single-file payloads with optional auth and obfuscation.
-> research only**. Unauthorized use against systems you do not own or have explicit
-> written permission to test is **illegal**. The author assumes no liability for
-> misuse.
-
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-
-Minimal web shell generator for post-exploitation assessments. Supports **PHP**,
-**ASP**, and **JSP** one-liner shells with configurable auth and obfuscation.
+Minimal web shell generator (PHP, ASP, JSP) with optional auth and obfuscation.
+Single-file payloads, zero deps.
 
 ## Features
 
-- 🚀 **Tiny payloads** — PHP shell fits in **1 line**, < 50 bytes (minimal mode)
-- 🔐 **Auth password** — optional key-check protects against unauthorized access
-- 🌀 **Obfuscation** — none / low / medium / high
-- 📦 **Zero dependencies** — pure Python 3 stdlib
+- PHP shell fits in 43 bytes (minimal mode)
+- Auth password for access control
+- Obfuscation levels: none / low / medium / high
+- No dependencies outside Python stdlib
 
 ## Quick Start
 
