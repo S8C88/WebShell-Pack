@@ -9,7 +9,6 @@ import argparse
 import base64
 import os
 import random
-import sys
 
 __version__ = "1.0.0"
 
